@@ -1,0 +1,80 @@
+Standar API
+
+{root.api}/{version}/{grouping}/{endpoint}
+SAMPLE:
+https://mern-api.lilo.com/v1/auth/login
+
+Standar status response
+200 - OK ---> Call API Success
+201 - CREATED ---> POST Success
+400 - BAD REQUEST ---> error on client side
+401 - UNAUTHORIZED ---> user not authorized to the REQUEST
+403 - FORBIDDEN ---> User not allowed to the access
+404 - NOT FOUND ---> Request end point not found.
+500 - INTERNAL SERVER ERROR ---> error on SERVER side
+502 - BAD GATEWAY ---> Invalid response from another request
+
+
+
+
+
+
+GROUP:  Authentication
+
+[1] - Register
+{root.api}/{version}/auth/register
+
+req:
+{
+    "name":"testing",
+    "email":"test@gmail.com",
+    "password":"12345"
+}
+
+res:
+{
+    "message":"register success",
+    "data":{
+        "id": 1,
+        "name":"testing",
+        "email":"test@gmail.com",
+        "password":"12345"
+    }
+}
+
+err-response:
+201 --> register berhasil
+400 --> input yang anda masukan tidak valid
+
+
+[2] - Login
+
+GROUP: BLOG
+
+[1] -   Create Blog Post
+[POST] : {root.api}/{version}/BLOG/post
+
+req : {
+    "tittle":"tittle",
+    "image":"image.jpg",
+    "body":"kontent"
+}
+
+res: {
+    "message":"Create blog post success",
+    "data": {
+        "post_id":1,
+        "tittle":"tittle blog",
+        "image":"imagefile.jpg",
+        "body":"loremipsum50",
+        "created_at": "12/06/2020",
+        "author": {
+            "uid": 1,
+            "name": "testing"
+        }
+    }
+}
+
+[2] -   Get Blog Post
+[3] -   Update Blog Post
+[4] -   Delete Blog Post
